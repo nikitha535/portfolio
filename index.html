@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chenga Nikitha | Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--p:#8b5cf6;--b:#3b82f6;--g:#10b981;--pk:#ec4899;--bg:#060612;--card:#0d0d22;--border:rgba(255,255,255,0.07);}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#e2e8f0;overflow-x:hidden;}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:#0a0a18;}
+::-webkit-scrollbar-thumb{background:#8b5cf6;border-radius:10px;}
+
+/* NOISE OVERLAY */
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 15% 15%,rgba(139,92,246,0.12),transparent 50%),radial-gradient(ellipse at 85% 85%,rgba(59,130,246,0.1),transparent 50%);pointer-events:none;z-index:0;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(6,6,18,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(139,92,246,0.1);}
+.nav-inner{max-width:1000px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;}
+.nav-logo{font-size:16px;font-weight:900;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{font-size:12px;color:#64748b;text-decoration:none;font-weight:500;transition:color .2s;letter-spacing:0.3px;}
+.nav-links a:hover{color:#a78bfa;}
+.nav-btn{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;font-size:11px;font-weight:700;padding:7px 16px;border-radius:20px;text-decoration:none;letter-spacing:0.3px;transition:opacity .2s;}
+.nav-btn:hover{opacity:0.85;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;padding:80px 24px 40px;}
+.hero-inner{max-width:700px;text-align:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:20px;padding:6px 14px;font-size:10px;color:#6ee7b7;font-weight:600;letter-spacing:1px;margin-bottom:24px;}
+.pulse{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-size:56px;font-weight:900;letter-spacing:-2px;line-height:1.05;margin-bottom:16px;}
+.hero h1 span{background:linear-gradient(135deg,#a78bfa,#60a5fa,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:15px;color:#64748b;line-height:1.7;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;}
+.hero-sub strong{color:#a78bfa;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;font-size:13px;font-weight:700;padding:12px 28px;border-radius:25px;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(139,92,246,0.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(139,92,246,0.4);}
+.btn-secondary{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:#e2e8f0;font-size:13px;font-weight:600;padding:12px 28px;border-radius:25px;text-decoration:none;transition:all .2s;}
+.btn-secondary:hover{background:rgba(255,255,255,0.08);border-color:rgba(139,92,246,0.4);}
+.hero-stats{display:flex;gap:32px;justify-content:center;margin-top:48px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-size:28px;font-weight:900;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-label{font-size:10px;color:#475569;letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
+
+/* SECTIONS */
+section{position:relative;z-index:1;padding:80px 24px;}
+.sec-inner{max-width:1000px;margin:0 auto;}
+.sec-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#8b5cf6;font-weight:700;margin-bottom:8px;}
+.sec-title{font-size:32px;font-weight:900;letter-spacing:-1px;margin-bottom:8px;}
+.sec-title span{background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sec-sub{font-size:13px;color:#475569;margin-bottom:40px;}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s;}
+.card:hover{transform:translateY(-3px);border-color:rgba(139,92,246,0.3);}
+.card-accent{position:absolute;top:0;left:0;right:0;height:2px;}
+.acc-p{background:linear-gradient(90deg,transparent,#8b5cf6,transparent);}
+.acc-b{background:linear-gradient(90deg,transparent,#3b82f6,transparent);}
+.acc-g{background:linear-gradient(90deg,transparent,#10b981,transparent);}
+.acc-pk{background:linear-gradient(90deg,transparent,#ec4899,transparent);}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.about-text{font-size:13px;line-height:1.9;color:#64748b;}
+.about-text .hi{color:#e2e8f0;font-weight:700;font-size:15px;}
+.about-text .hp{color:#a78bfa;font-weight:600;}
+.about-text .hb{color:#60a5fa;font-weight:600;}
+.about-text .hg{color:#34d399;font-weight:600;}
+.info-list{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.info-row{display:flex;align-items:center;gap:10px;font-size:12px;color:#64748b;}
+.info-row .ik{width:28px;height:28px;background:rgba(139,92,246,0.1);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.info-row a{color:#93c5fd;text-decoration:none;}
+.info-row a:hover{text-decoration:underline;}
+
+/* EDUCATION */
+.edu-timeline{display:flex;flex-direction:column;gap:16px;}
+.edu-card{display:flex;gap:16px;align-items:flex-start;}
+.edu-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.ei-p{background:rgba(139,92,246,0.15);box-shadow:0 0 20px rgba(139,92,246,0.1);}
+.ei-b{background:rgba(59,130,246,0.15);box-shadow:0 0 20px rgba(59,130,246,0.1);}
+.ei-g{background:rgba(16,185,129,0.15);box-shadow:0 0 20px rgba(16,185,129,0.1);}
+.edu-info{flex:1;}
+.edu-title{font-size:14px;font-weight:700;color:#e2e8f0;}
+.edu-school{font-size:12px;color:#475569;margin-top:2px;}
+.edu-row2{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap;}
+.score-chip{font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;}
+.sc-p{background:rgba(139,92,246,0.12);color:#c4b5fd;border:1px solid rgba(139,92,246,0.25);}
+.sc-b{background:rgba(59,130,246,0.12);color:#93c5fd;border:1px solid rgba(59,130,246,0.25);}
+.sc-g{background:rgba(16,185,129,0.12);color:#6ee7b7;border:1px solid rgba(16,185,129,0.25);}
+.date-chip{font-size:10px;color:#334155;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);padding:3px 10px;border-radius:10px;}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;transition:transform .2s,border-color .2s;}
+.skill-card:hover{transform:translateY(-2px);border-color:rgba(139,92,246,0.25);}
+.sk-icon{font-size:24px;margin-bottom:8px;}
+.sk-name{font-size:12px;font-weight:700;color:#e2e8f0;margin-bottom:10px;}
+.sk-bar-bg{background:rgba(255,255,255,0.05);border-radius:10px;height:4px;margin-bottom:4px;}
+.sk-bar{height:4px;border-radius:10px;}
+.sk-pct{font-size:10px;color:#475569;text-align:right;}
+
+/* PROJECT */
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;position:relative;overflow:hidden;}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7c3aed,#2563eb,#059669);}
+.proj-header{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px;}
+.proj-icon{width:52px;height:52px;background:linear-gradient(135deg,#7c3aed,#2563eb);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;box-shadow:0 4px 20px rgba(139,92,246,0.3);}
+.proj-title{font-size:18px;font-weight:800;color:#e2e8f0;}
+.proj-type{font-size:11px;color:#475569;margin-top:3px;}
+.proj-desc{font-size:13px;color:#64748b;line-height:1.8;margin-bottom:16px;}
+.proj-desc span{color:#34d399;font-weight:600;}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{font-size:10px;padding:4px 10px;border-radius:10px;font-weight:500;}
+.tg{background:rgba(16,185,129,0.1);color:#6ee7b7;border:1px solid rgba(16,185,129,0.2);}
+.tb{background:rgba(59,130,246,0.1);color:#93c5fd;border:1px solid rgba(59,130,246,0.2);}
+.tp{background:rgba(139,92,246,0.1);color:#c4b5fd;border:1px solid rgba(139,92,246,0.2);}
+
+/* CERTIFICATIONS */
+.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;gap:12px;align-items:flex-start;transition:all .2s;}
+.cert-card:hover{border-color:rgba(139,92,246,0.3);transform:translateY(-2px);}
+.cert-emoji{font-size:20px;margin-top:2px;flex-shrink:0;}
+.cert-name{font-size:12px;font-weight:700;color:#e2e8f0;}
+.cert-issuer{font-size:10.5px;color:#334155;margin-top:3px;}
+.cert-chip{display:inline-block;margin-top:5px;font-size:9px;padding:2px 8px;border-radius:8px;font-weight:700;}
+.cc-p{background:rgba(139,92,246,0.15);color:#c4b5fd;}
+.cc-b{background:rgba(59,130,246,0.15);color:#93c5fd;}
+.cc-g{background:rgba(16,185,129,0.15);color:#6ee7b7;}
+.cc-pk{background:rgba(236,72,153,0.15);color:#f9a8d4;}
+.cc-gold{background:rgba(245,158,11,0.15);color:#fcd34d;}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.contact-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;}
+.contact-links{display:flex;flex-direction:column;gap:12px;margin-top:4px;}
+.cl-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:10px;text-decoration:none;color:#94a3b8;font-size:12px;transition:all .2s;}
+.cl-item:hover{border-color:rgba(139,92,246,0.3);color:#e2e8f0;background:rgba(139,92,246,0.05);}
+.cl-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.ci-p{background:rgba(139,92,246,0.15);}
+.ci-b{background:rgba(59,130,246,0.15);}
+.ci-g{background:rgba(16,185,129,0.15);}
+.ci-pk{background:rgba(236,72,153,0.15);}
+.cl-text{display:flex;flex-direction:column;}
+.cl-label{font-size:10px;color:#475569;text-transform:uppercase;letter-spacing:1px;}
+.cl-val{font-size:12px;color:#94a3b8;margin-top:1px;}
+
+/* FOOTER */
+footer{position:relative;z-index:1;text-align:center;padding:32px 24px;border-top:1px solid rgba(255,255,255,0.05);font-size:11px;color:#334155;}
+footer span{color:#8b5cf6;}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,0.2),transparent);margin:0 auto;max-width:1000px;}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .hero h1{font-size:36px;}
+  .about-grid,.skills-grid,.cert-grid,.contact-grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">CN ✦</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="resume.pdf" class="nav-btn" target="_blank" download>⬇ Resume PDF</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><div class="pulse"></div> OPEN TO INTERNSHIPS · 2025</div>
+    <h1>Chenga<br><span>Nikitha</span></h1>
+    <p class="hero-sub">B.Tech CSE student at <strong>Vignan's LITS</strong> passionate about <strong>AI, Python & Full Stack Web Dev</strong>. 12+ certifications. 1 cool project. Infinite curiosity. 🚀</p>
+    <div class="hero-btns">
+      <a href="#project" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-secondary">Get In Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">8.0</div><div class="stat-label">CGPA</div></div>
+      <div class="stat"><div class="stat-num">12+</div><div class="stat-label">Certifications</div></div>
+      <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Tech Skills</div></div>
+      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Learning</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-inner">
+    <div class="sec-tag">✦ Who Am I</div>
+    <h2 class="sec-title">About <span>Me</span></h2>
+    <p class="sec-sub">A little about my background and what drives me.</p>
+    <div class="about-grid">
+      <div class="card"><div class="card-accent acc-p"></div>
+        <p class="about-text">
+          <span class="hi">Hey! I'm Nikitha 👋</span><br><br>
+          I'm a <span class="hp">CSE undergrad</span> from Guntur, India who's genuinely obsessed with <span class="hp">Artificial Intelligence, Python, and building things on the web</span>.<br><br>
+          I've earned <span class="hb">12+ certifications</span> from NPTEL, Infosys Springboard, Cisco, and Google Cloud — not just to collect them, but because I <span class="hg">can't stop learning</span>.<br><br>
+          I built a <span class="hp">voice-powered AI desktop assistant</span> as my major project and I'm ready to bring that same energy to a real internship. Let's build something cool together. 🚀
+        </p>
+      </div>
+      <div class="card"><div class="card-accent acc-b"></div>
+        <div class="info-list">
+          <div class="info-row"><div class="ik">🎓</div> Vignan's LITS — B.Tech CSE (2022–Present)</div>
+          <div class="info-row"><div class="ik">📍</div> Guntur, Andhra Pradesh, India</div>
+          <div class="info-row"><div class="ik">📧</div> nikitha.chenga@email.com</div>
+          <div class="info-row"><div class="ik">📞</div> +91 98490 99855</div>
+          <div class="info-row"><div class="ik">🔗</div>       <a href="http://www.linkedin.com/in/nikitha-chenga-56a927333" target="_blank" rel="noopener noreferrer">linkedin.com/in/nikitha-chenga</a></div>
+          <div class="info-row"><div class="ik">🐙</div> <a href="https://github.com/nikitha535" target="_blank" rel="noopener noreferrer">github.com/nikitha535</a></div>
+          <div class="info-row"><div class="ik">👩‍💻</div> <a href="https://www.codechef.com/users/nikithachenga" target="_blank" rel="noopener noreferrer">codechef.com/users/nikithachenga</a></div>
+          <div class="info-row"><div class="ik">🌐</div> Telugu, English</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="sec-inner">
+    <div class="sec-tag">✦ My Journey</div>
+    <h2 class="sec-title">Edu<span>cation</span></h2>
+    <p class="sec-sub">Academic background and achievements.</p>
+    <div class="edu-timeline">
+      <div class="card"><div class="card-accent acc-p"></div>
+        <div class="edu-card">
+          <div class="edu-icon ei-p">🎓</div>
+          <div class="edu-info">
+            <div class="edu-title">B.Tech — Computer Science & Engineering</div>
+            <div class="edu-school">Vignan's Lara Institute of Technology & Science, Guntur</div>
+            <div class="edu-row2"><span class="score-chip sc-p">CGPA 8.0 / 10</span><span class="date-chip">2022 – Present</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card"><div class="card-accent acc-b"></div>
+        <div class="edu-card">
+          <div class="edu-icon ei-b">📚</div>
+          <div class="edu-info">
+            <div class="edu-title">Intermediate — MPC (Maths, Physics, Chemistry)</div>
+            <div class="edu-school">Vignan Junior College, Guntur</div>
+            <div class="edu-row2"><span class="score-chip sc-b">92%</span><span class="date-chip">2020 – 2022</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card"><div class="card-accent acc-g"></div>
+        <div class="edu-card">
+          <div class="edu-icon ei-g">🏫</div>
+          <div class="edu-info">
+            <div class="edu-title">10th — CBSE</div>
+            <div class="edu-school">St. Augustine E.M. High School, Amaravathi, Guntur</div>
+            <div class="edu-row2"><span class="score-chip sc-g">70%</span><span class="date-chip">2019 – 2020</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-inner">
+    <div class="sec-tag">✦ What I Know</div>
+    <h2 class="sec-title">Tech <span>Skills</span></h2>
+    <p class="sec-sub">Technologies and tools I work with.</p>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="sk-icon">🐍</div><div class="sk-name">Python</div><div class="sk-bar-bg"><div class="sk-bar" style="width:75%;background:linear-gradient(90deg,#7c3aed,#a78bfa)"></div></div><div class="sk-pct">75%</div></div>
+      <div class="skill-card"><div class="sk-icon">🌐</div><div class="sk-name">HTML & CSS</div><div class="sk-bar-bg"><div class="sk-bar" style="width:70%;background:linear-gradient(90deg,#2563eb,#60a5fa)"></div></div><div class="sk-pct">70%</div></div>
+      <div class="skill-card"><div class="sk-icon">🤖</div><div class="sk-name">AI / ML / Deep Learning</div><div class="sk-bar-bg"><div class="sk-bar" style="width:65%;background:linear-gradient(90deg,#059669,#34d399)"></div></div><div class="sk-pct">65%</div></div>
+      <div class="skill-card"><div class="sk-icon">🗂️</div><div class="sk-name">Full Stack Web Dev</div><div class="sk-bar-bg"><div class="sk-bar" style="width:60%;background:linear-gradient(90deg,#0891b2,#22d3ee)"></div></div><div class="sk-pct">60%</div></div>
+      <div class="skill-card"><div class="sk-icon">⚙️</div><div class="sk-name">C++ / Java</div><div class="sk-bar-bg"><div class="sk-bar" style="width:50%;background:linear-gradient(90deg,#db2777,#f472b6)"></div></div><div class="sk-pct">50%</div></div>
+      <div class="skill-card"><div class="sk-icon">🔐</div><div class="sk-name">Cybersecurity (Basics)</div><div class="sk-bar-bg"><div class="sk-bar" style="width:55%;background:linear-gradient(90deg,#7c3aed,#a78bfa)"></div></div><div class="sk-pct">55%</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECT -->
+<section id="project">
+  <div class="sec-inner">
+    <div class="sec-tag">✦ What I Built</div>
+    <h2 class="sec-title">My <span>Project</span></h2>
+    <p class="sec-sub">Turning ideas into reality with code.</p>
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">🎙️</div>
+        <div>
+          <div class="proj-title">Cognitive Desktop Speech Automation Engine</div>
+          <div class="proj-type">AI-Powered Voice Assistant · Python · NLP · Vignan's LITS</div>
+        </div>
+      </div>
+      <p class="proj-desc">Built a desktop AI assistant that <span>listens, understands, and acts</span> on natural voice commands — automating tasks, answering queries, and controlling the system completely hands-free. Think Jarvis, built from scratch using Python and Natural Language Processing. This project showcases real-world application of AI, speech recognition, and automation in a single seamless experience.</p>
+      <div class="tag-row">
+        <span class="tag tg">Python</span><span class="tag tb">NLP</span><span class="tag tp">Speech Recognition</span><span class="tag tg">AI Automation</span><span class="tag tb">Desktop App</span><span class="tag tp">Voice Interface</span><span class="tag tg">Artificial Intelligence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="sec-inner">
+    <div class="sec-tag">✦ Proof of Learning</div>
+    <h2 class="sec-title">Certifi<span>cations</span></h2>
+    <p class="sec-sub">12 completed across AI · Web Dev · Security · Cloud.</p>
+    <div class="cert-grid">
+      <div class="cert-card"><span class="cert-emoji">🏛️</span><div><div class="cert-name">Fundamentals of Artificial Intelligence</div><div class="cert-issuer">NPTEL · IIT Guwahati · Jul–Oct 2024</div><span class="cert-chip cc-p">Score: 57%</span></div></div>
+      <div class="cert-card"><span class="cert-emoji">🏛️</span><div><div class="cert-name">Joy of Computing Using Python</div><div class="cert-issuer">NPTEL · IIT Madras · Jul–Oct 2024</div><span class="cert-chip cc-gold">🏅 Elite · 67%</span></div></div>
+      <div class="cert-card"><span class="cert-emoji">🌐</span><div><div class="cert-name">Complete Full-Stack Web Dev Bootcamp</div><div class="cert-issuer">Udemy · Dr. Angela Yu · 61.5 hrs · Apr 2025</div><span class="cert-chip cc-b">61.5 Hours</span></div></div>
+      <div class="cert-card"><span class="cert-emoji">☁️</span><div><div class="cert-name">Introduction to Generative AI Studio</div><div class="cert-issuer">Google Cloud · Simplilearn · Jul 2025</div><span class="cert-chip cc-g">Google Cloud</span></div></div>
+      <div class="cert-card"><span class="cert-emoji">🔐</span><div><div class="cert-name">Introduction to Cybersecurity</div><div class="cert-issuer">Cisco Networking Academy · Mar 2024</div><span class="cert-chip cc-b">Cisco</span></div></div>
+      <div class="cert-card"><span class="cert-emoji">🛡️</span><div><div class="cert-name">Cyber Threat Management</div><div class="cert-issuer">Cisco Networking Academy · Dec 2025</div><span class="cert-chip cc-b">Cisco</span></div></div>
+      <div class="cert-card"><span class="cert-emoji">🤖</span><div><div class="cert-name">Deep Learning + NLP + Intro to AI</div><div class="cert-issuer">Infosys Springboard · 3 Certificates · Aug–Oct 2024</div><span class="cert-chip cc-pk">Infosys</span></div></div>
+      <div class="cert-card"><span class="cert-emoji">🐍</span><div><div class="cert-name">Python Fundamentals Part 1, 2 + Basics</div><div class="cert-issuer">Infosys Springboard · 3 Certificates · Feb 2025</div><span class="cert-chip cc-pk">Infosys</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-inner">
+    <div class="sec-tag">✦ Let's Connect</div>
+    <h2 class="sec-title">Get In <span>Touch</span></h2>
+    <p class="sec-sub">Looking for an internship — drop me a message!</p>
+    <div class="contact-grid">
+      <div class="contact-card"><div class="card-accent acc-p"></div>
+        <div class="rl rp" style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#a78bfa;margin-bottom:12px;">Direct Contact</div>
+        <div class="contact-links">
+          <a href="mailto:nikitha.chenga@email.com" class="cl-item"><div class="cl-icon ci-p">📧</div><div class="cl-text"><span class="cl-label">Email</span><span class="cl-val">nikitha.chenga@email.com</span></div></a>
+          <a href="tel:+919849099855" class="cl-item"><div class="cl-icon ci-g">📞</div><div class="cl-text"><span class="cl-label">Phone</span><span class="cl-val">+91 98490 99855</span></div></a>
+          <a class="cl-item"><div class="cl-icon ci-b">📍</div><div class="cl-text"><span class="cl-label">Location</span><span class="cl-val">Guntur, Andhra Pradesh, India</span></div></a>
+        </div>
+      </div>
+      <div class="contact-card"><div class="card-accent acc-b"></div>
+        <div class="rl rb" style="font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#60a5fa;margin-bottom:12px;">Social Profiles</div>
+        <div class="contact-links">
+          <a href="http://www.linkedin.com/in/nikitha-chenga-56a927333" target="_blank" rel="noopener noreferrer" class="cl-item"><div class="cl-icon ci-b">🔗</div><div class="cl-text"><span class="cl-label">LinkedIn</span><span class="cl-val">nikitha-chenga-56a927333</span></div></a>
+          <a href="https://github.com/nikitha535" target="_blank" rel="noopener noreferrer" class="cl-item"><div class="cl-icon ci-p">🐙</div><div class="cl-text"><span class="cl-label">GitHub</span><span class="cl-val">github.com/nikitha535</span></div></a>
+          <a href="https://www.codechef.com/users/nikithachenga" target="_blank" rel="noopener noreferrer" class="cl-item"><div class="cl-icon ci-g">👩‍💻</div><div class="cl-text"><span class="cl-label">CodeChef</span><span class="cl-val">nikithachenga</span></div></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Designed & built with 💜 by <span>Chenga Nikitha</span> · 2025</p>
+</footer>
+
+</body>
+</html>
