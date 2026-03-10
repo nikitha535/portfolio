@@ -44,6 +44,67 @@ body.light .cl-item:hover{background:rgba(139,92,246,0.05);}
 body.light .proj-card{background:#fff;}
 body.light .hero-stats{border-top:1px solid rgba(0,0,0,0.06);}
 
+/* Hero section light fixes */
+body.light .hero{background:transparent;}
+body.light .hero h1{color:#0f172a;}
+body.light .m-header{background:linear-gradient(135deg,#f8f5ff,#f0f7ff);border-color:rgba(139,92,246,0.2);}
+body.light .edu-card-wrap{background:#fff;}
+
+/* Contact section light */
+body.light .contact-card{background:#fff;border-color:rgba(139,92,246,0.1);}
+
+/* Cert chips light */
+body.light .cc-p{background:rgba(139,92,246,0.1);color:#5b21b6;}
+body.light .cc-b{background:rgba(59,130,246,0.1);color:#1e40af;}
+body.light .cc-g{background:rgba(16,185,129,0.1);color:#065f46;}
+body.light .cc-pk{background:rgba(236,72,153,0.1);color:#9d174d;}
+body.light .cc-gold{background:rgba(245,158,11,0.1);color:#92400e;}
+
+/* Score chips light */
+body.light .score-chip.sc-p{background:rgba(139,92,246,0.1);color:#5b21b6;border-color:rgba(139,92,246,0.25);}
+body.light .score-chip.sc-b{background:rgba(59,130,246,0.1);color:#1e40af;border-color:rgba(59,130,246,0.25);}
+body.light .score-chip.sc-g{background:rgba(16,185,129,0.1);color:#065f46;border-color:rgba(16,185,129,0.25);}
+body.light .date-chip{background:rgba(0,0,0,0.04);border-color:rgba(0,0,0,0.1);color:#475569;}
+
+/* Nav right icons light */
+body.light .hamburger span{background:#0f172a;}
+body.light .hamburger{background:#f8fafc;border-color:rgba(0,0,0,0.1);}
+body.light .theme-toggle{background:#f8fafc;border-color:rgba(0,0,0,0.1);}
+body.light .btn-secondary{background:rgba(0,0,0,0.05);border-color:rgba(0,0,0,0.15);color:#0f172a;}
+body.light .btn-secondary:hover{background:rgba(139,92,246,0.1);border-color:#a78bfa;color:#7c3aed;}
+body.light .hero-badge{background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.35);color:#059669;}
+body.light .hero h1{color:#0f172a;}
+body.light .stat-num{background:linear-gradient(135deg,#7c3aed,#2563eb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+body.light .card{background:#fff;border-color:rgba(139,92,246,0.1);}
+body.light .card:hover{border-color:rgba(139,92,246,0.3);}
+body.light .sec-title{color:#0f172a;}
+body.light .sec-tag{color:#7c3aed;}
+body.light .edu-title{color:#0f172a;}
+body.light .edu-card .edu-icon{opacity:0.9;}
+body.light .proj-title{color:#0f172a;}
+body.light .proj-type{color:#64748b;}
+body.light .tag.tg{background:rgba(16,185,129,0.1);color:#065f46;}
+body.light .tag.tb{background:rgba(59,130,246,0.1);color:#1e40af;}
+body.light .tag.tp{background:rgba(139,92,246,0.1);color:#5b21b6;}
+body.light .cert-name{color:#0f172a;}
+body.light .cert-card:hover{border-color:rgba(139,92,246,0.3);}
+body.light .cl-label{color:#64748b;}
+body.light .cl-val{color:#334155;}
+body.light .cl-icon{opacity:0.85;}
+body.light footer{border-top-color:rgba(0,0,0,0.08);color:#94a3b8;}
+body.light .about-text .hi{color:#0f172a;}
+body.light .about-text .hp{color:#7c3aed;}
+body.light .about-text .hb{color:#2563eb;}
+body.light .about-text .hg{color:#059669;}
+body.light .info-row{color:#475569;}
+body.light .info-row a{color:#2563eb;}
+body.light .sk-name{color:#0f172a;}
+body.light .sk-pct{color:#64748b;}
+body.light .sk-bar-bg{background:rgba(0,0,0,0.07);}
+body.light .tool-item{background:rgba(0,0,0,0.03);border-color:rgba(0,0,0,0.08);color:#475569;}
+body.light .str-card{background:rgba(0,0,0,0.02);border-color:rgba(0,0,0,0.07);color:#475569;}
+body.light .divider{background:linear-gradient(90deg,transparent,rgba(139,92,246,0.15),transparent);}
+
 html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .3s,color .3s;}
 
@@ -67,8 +128,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:va
 .nav-btn:hover{opacity:0.85;}
 
 /* THEME TOGGLE */
-.theme-toggle{width:36px;height:36px;border-radius:50%;border:1px solid var(--navborder);background:var(--card);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s;flex-shrink:0;}
+.theme-toggle{width:36px;height:36px;border-radius:50%;border:1px solid var(--navborder);background:var(--card);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;transition:all .2s;flex-shrink:0;padding:0;outline:none;vertical-align:middle;}
 .theme-toggle:hover{border-color:#a78bfa;transform:rotate(20deg);}
+.theme-toggle span{display:flex;align-items:center;justify-content:center;width:100%;height:100%;line-height:1;}
 
 /* HAMBURGER */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:1px solid var(--navborder);border-radius:8px;background:var(--card);flex-shrink:0;}
@@ -242,7 +304,7 @@ footer span{color:#8b5cf6;}
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme"><span>🌙</span></button>
       <a href="resume.pdf" class="nav-btn" target="_blank" download>⬇ Resume PDF</a>
       <div class="hamburger" id="hamburger">
         <span></span><span></span><span></span>
@@ -457,14 +519,15 @@ footer span{color:#8b5cf6;}
 <script>
   // THEME TOGGLE
   const toggle = document.getElementById('themeToggle');
+  const icon = toggle.querySelector('span');
   const body = document.body;
   const saved = localStorage.getItem('theme');
-  if(saved === 'light'){ body.classList.add('light'); toggle.textContent = '☀️'; }
+  if(saved === 'light'){ body.classList.add('light'); icon.textContent = '☀️'; }
 
   toggle.addEventListener('click', () => {
     body.classList.toggle('light');
     const isLight = body.classList.contains('light');
-    toggle.textContent = isLight ? '☀️' : '🌙';
+    icon.textContent = isLight ? '☀️' : '🌙';
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
   });
 
