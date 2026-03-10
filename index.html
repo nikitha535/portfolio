@@ -7,9 +7,45 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{--p:#8b5cf6;--b:#3b82f6;--g:#10b981;--pk:#ec4899;--bg:#060612;--card:#0d0d22;--border:rgba(255,255,255,0.07);}
+
+/* DARK MODE (default) */
+:root{
+  --p:#8b5cf6;--b:#3b82f6;--g:#10b981;--pk:#ec4899;
+  --bg:#060612;--card:#0d0d22;--border:rgba(255,255,255,0.07);
+  --text:#e2e8f0;--subtext:#64748b;--navbg:rgba(6,6,18,0.88);
+  --navborder:rgba(139,92,246,0.1);--cardborder:rgba(255,255,255,0.06);
+}
+
+/* LIGHT MODE */
+body.light{
+  --bg:#f1f5f9;--card:#ffffff;--border:rgba(0,0,0,0.07);
+  --text:#0f172a;--subtext:#64748b;--navbg:rgba(255,255,255,0.92);
+  --navborder:rgba(139,92,246,0.2);--cardborder:rgba(139,92,246,0.12);
+}
+body.light::before{background:radial-gradient(ellipse at 15% 15%,rgba(139,92,246,0.07),transparent 50%),radial-gradient(ellipse at 85% 85%,rgba(59,130,246,0.06),transparent 50%);}
+body.light .about-text .hi{color:#0f172a;}
+body.light .hero-sub{color:#475569;}
+body.light .stat-label{color:#64748b;}
+body.light .sec-sub{color:#64748b;}
+body.light .edu-school{color:#64748b;}
+body.light .proj-desc{color:#475569;}
+body.light .about-text{color:#475569;}
+body.light .nav-links a{color:#475569;}
+body.light .nav-links a:hover{color:#8b5cf6;}
+body.light ::-webkit-scrollbar-track{background:#e2e8f0;}
+body.light .cl-item{color:#475569;}
+body.light .cl-val{color:#475569;}
+body.light .cert-issuer{color:#94a3b8;}
+body.light .skill-card{background:#fff;border-color:rgba(139,92,246,0.1);}
+body.light .cert-card{background:#fff;}
+body.light .contact-card{background:#fff;}
+body.light .cl-item{background:rgba(0,0,0,0.02);border-color:rgba(0,0,0,0.06);}
+body.light .cl-item:hover{background:rgba(139,92,246,0.05);}
+body.light .proj-card{background:#fff;}
+body.light .hero-stats{border-top:1px solid rgba(0,0,0,0.06);}
+
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:#e2e8f0;overflow-x:hidden;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .3s,color .3s;}
 
 /* SCROLLBAR */
 ::-webkit-scrollbar{width:4px;}
@@ -20,14 +56,40 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:#e2e8f0;overflow-
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 15% 15%,rgba(139,92,246,0.12),transparent 50%),radial-gradient(ellipse at 85% 85%,rgba(59,130,246,0.1),transparent 50%);pointer-events:none;z-index:0;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(6,6,18,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(139,92,246,0.1);}
-.nav-inner{max-width:1000px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;}
-.nav-logo{font-size:16px;font-weight:900;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:var(--navbg);backdrop-filter:blur(20px);border-bottom:1px solid var(--navborder);transition:background .3s;}
+.nav-inner{max-width:1000px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.nav-logo{font-size:16px;font-weight:900;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;flex-shrink:0;}
 .nav-links{display:flex;gap:24px;list-style:none;}
-.nav-links a{font-size:12px;color:#64748b;text-decoration:none;font-weight:500;transition:color .2s;letter-spacing:0.3px;}
+.nav-links a{font-size:12px;color:var(--subtext);text-decoration:none;font-weight:500;transition:color .2s;letter-spacing:0.3px;}
 .nav-links a:hover{color:#a78bfa;}
-.nav-btn{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;font-size:11px;font-weight:700;padding:7px 16px;border-radius:20px;text-decoration:none;letter-spacing:0.3px;transition:opacity .2s;}
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.nav-btn{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;font-size:11px;font-weight:700;padding:7px 16px;border-radius:20px;text-decoration:none;letter-spacing:0.3px;transition:opacity .2s;white-space:nowrap;}
 .nav-btn:hover{opacity:0.85;}
+
+/* THEME TOGGLE */
+.theme-toggle{width:36px;height:36px;border-radius:50%;border:1px solid var(--navborder);background:var(--card);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s;flex-shrink:0;}
+.theme-toggle:hover{border-color:#a78bfa;transform:rotate(20deg);}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:1px solid var(--navborder);border-radius:8px;background:var(--card);flex-shrink:0;}
+.hamburger span{width:20px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* MOBILE MENU */
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;z-index:99;background:var(--navbg);backdrop-filter:blur(20px);border-bottom:1px solid var(--navborder);padding:16px 24px;flex-direction:column;gap:4px;transition:all .3s;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-size:13px;color:var(--subtext);text-decoration:none;font-weight:500;padding:10px 12px;border-radius:8px;transition:all .2s;}
+.mobile-menu a:hover{color:#a78bfa;background:rgba(139,92,246,0.08);}
+.mobile-menu .mob-btn{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;font-size:12px;font-weight:700;padding:10px 16px;border-radius:20px;text-decoration:none;text-align:center;margin-top:8px;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .nav-btn{display:none;}
+}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;padding:80px 24px 40px;}
@@ -179,9 +241,26 @@ footer span{color:#8b5cf6;}
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="resume.pdf" class="nav-btn" target="_blank" download>⬇ Resume PDF</a>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+      <a href="resume.pdf" class="nav-btn" target="_blank" download>⬇ Resume PDF</a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mob-link">👤 About</a>
+  <a href="#education" class="mob-link">🎓 Education</a>
+  <a href="#skills" class="mob-link">⚡ Skills</a>
+  <a href="#project" class="mob-link">🚀 Project</a>
+  <a href="#certifications" class="mob-link">🏅 Certifications</a>
+  <a href="#contact" class="mob-link">📬 Contact</a>
+  <a href="resume.pdf" class="mob-btn" target="_blank" download>⬇ Download Resume PDF</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -375,5 +454,36 @@ footer span{color:#8b5cf6;}
   <p>Designed & built with 💜 by <span>Chenga Nikitha</span> · 2025</p>
 </footer>
 
+<script>
+  // THEME TOGGLE
+  const toggle = document.getElementById('themeToggle');
+  const body = document.body;
+  const saved = localStorage.getItem('theme');
+  if(saved === 'light'){ body.classList.add('light'); toggle.textContent = '☀️'; }
+
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('light');
+    const isLight = body.classList.contains('light');
+    toggle.textContent = isLight ? '☀️' : '🌙';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+
+  // HAMBURGER MENU
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileMenu');
+
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mob-link').forEach(link => {
+    link.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+    });
+  });
+</script>
 </body>
 </html>
